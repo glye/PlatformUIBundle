@@ -3,8 +3,12 @@
  * For full copyright and license information view LICENSE file distributed with this source code.
  */
 YUI.add('ez-treeactionview-tests', function (Y) {
-    var buttonTest, viewTest, treeTest,
+    var buttonTest, viewTest,
         Assert = Y.Assert;
+
+    // TODO this is a bit brutal, should be in each test case and most likely
+    // with a specific behaviour
+    Y.eZ.TreeView = Y.Base.create('testView', Y.View, [], {});
 
     buttonTest = new Y.Test.Case(
         Y.merge(Y.eZ.Test.ButtonActionViewTestCases, {
@@ -109,6 +113,8 @@ YUI.add('ez-treeactionview-tests', function (Y) {
         },
     });
 
+    /*
+    TODO move that to the dedicated treeview tests
     treeTest = new Y.Test.Case({
         name: "eZ Tree Action View tree tests",
 
@@ -410,10 +416,11 @@ YUI.add('ez-treeactionview-tests', function (Y) {
             this.wait();
         },
     });
+    */
 
     Y.Test.Runner.setName("eZ Tree Action View tests");
     Y.Test.Runner.add(viewTest);
-    Y.Test.Runner.add(treeTest);
+    //Y.Test.Runner.add(treeTest);
     Y.Test.Runner.add(buttonTest);
 }, '', {
     requires: [

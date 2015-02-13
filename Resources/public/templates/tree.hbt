@@ -1,0 +1,2 @@
+<p class="ez-tree-loading font-icon">Loading</p>
+{{> ez_tree }}
